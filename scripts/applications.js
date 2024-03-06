@@ -185,7 +185,7 @@ export let generateIE = (obj) => {
     flex-grow: 1; background-color: dimgray; padding: 3px; overflow: scroll; gap: 10px;">
       <img src="../assets/flow.png" class="logo-sizing" style="padding: 10px"/>  
       <p style="padding: 2em; color: whitesmoke; font-family: Arial">There is still some work going around here. More to come.</p>
-      <h3 style="color: whitesmoke">Thanks, Alex</h3>
+      <h3 style="color: whitesmoke">Cheers, Alex</h3>
       <br>
     </section>
   `
