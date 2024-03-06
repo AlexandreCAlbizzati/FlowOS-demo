@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowOS</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/windows.css" />
+    <script src="./scripts/main.js" type="module"></script>
+  </head>
+  <body>
+    <img src="./assets/background.jpg" class="bg" alt="background-image" />
+    <div class="page-wrap">
+      <div class="taskbar-group">
+        <div class="taskbar">
+          <div class="taskbar-items">
+            <div class="start-button"></div>
+            <div class="taskbar-resize"></div>
+            <div class="quicklaunch-desktop"></div>
+            <div class="quicklaunch-ie"></div>
+            <div class="quicklaunch-winamp"></div>
+            <div class="quicklaunch-cmd"></div>
+            <div class="taskbar-resize"></div>
+            <ul class="taskbar-applications">
+                <!-- <li id="1" class="app-button">
+                  <img src="../assets/ie16.png" class="pd-top-5" alt="ie16 icon" />
+                  <p class="pd-top-5 pd-left-2">Internet Explorer</p>
+                </li> -->
+            </ul>
+            <div class="systemtray-arrow"></div>
+            <div class="systemtray-winamp"></div>
+            <div class="systemtray-msn"></div>
+            <div class="systemtray-lan"></div>
+            <div class="systemtray-clock">
+              <div class="systemtray-time"></div>
+            </div>
+          </div>
+        </div>
+        <div class="start-menu">
+          <div class="sm-header">
+            <img src="./assets/flow.png" width="48" height="48" alt="user_icon" />
+            <p class="sm-header-username">My Computer</p>
+          </div>
+          <div class="sm-left">
+            <ul class="sm-topleftitems">
+              <li class="sm-topcard">
+                <img src="./assets/ie.png" class="sm-topcard-icon" alt="ie" width="32" height="32" />
+                <div class="sm-topcard-line1">Internet</div>
+                <div class="sm-topcard-line2">Internet Explorer</div>
+              </li>
+              <li class="sm-topcard">
+                <img src="./assets/out32tr.png" class="sm-topcard-icon" alt="ie" width="32" height="32" />
+                <div class="sm-topcard-line1">E-mail</div>
+                <div class="sm-topcard-line2">Microsoft Outlook</div>
+              </li>
+            </ul>
+
+            <img src="./assets/divider.png" class="divider" alt="divider" />
+
+            <ul class="sm-bottomleftitems">
+              <li class="left-card">
+                <img src="./assets/windows_media_player.png" alt="windows_media_player" width="32" height="32" />
+                <div>Windows Media Player</div>
+              </li>
+              <li class="left-card">
+                <img src="./assets/minesweeper.png" alt="minesweeper" width="32" height="32" />
+                <div>Minesweeper</div>
+              </li>
+              <li class="left-card">
+                <img src="./assets/tetris.png" alt="tetris" width="32" height="32" />
+                <div>Tetris</div>
+              </li>
+              <li class="left-card" id="cmd-rapid-menu">
+                <img src="./assets/commandPrompt.png" alt="cmd" width="32" height="32" />
+                <div>Command Prompt</div>
+              </li>
+              <li class="left-card">
+                <img src="./assets/totalcommander.png" alt="norton" width="32" height="32" />
+                <div>Norton Commander</div>
+              </li>
+              <li class="left-card">
+                <img src="./assets/winamp.png" alt="winamp" width="32" height="32" />
+                <div>Winamp</div>
+              </li>
+            </ul>
+            <img src="./assets/divider.png" class="divider" alt="divider" />
+            <div class="allprograms">
+              <div id="txtarrow">All Programs</div>
+              <div id="arrow"><img src="./assets/programs_arrow.png" alt="allprograms" width="16" height="16" /></div>
+            </div>
+          </div>
+          <ul class="allprograms-menu allprograms-menu-hidden">
+            <li class="apr-menuitem">
+              <img src="../assets/windows_update.png" alt="windows update" width="23px" height="21px" />Windows Update
+            </li>
+            <li class="apr-divider">
+              <img src="../assets/divider.png" alt="divider" width="170px" height="8px"  />
+            </li>
+            <li class="apr-menuitem right-arrow accessories">
+              <img src="../assets/programs.png" alt="windows update" width="23px" height="21px" />Accessories
+            </li>
+            <li class="apr-menuitem right-arrow games">
+              <img src="../assets/programs.png" alt="windows update" width="23px" height="21px" />Games
+            </li>
+            <li class="apr-menuitem">
+              <img src="../assets/programs.png" alt="windows update" width="23px" height="21px" />Startup</li>
+            <li class="apr-menuitem">
+              <img src="../assets/ie16.png" alt="windows update" width="23px" height="21px" />Internet Explorer</li>
+            <li class="apr-menuitem">
+              <img src="../assets/msn16.png" alt="windows update" width="23px" height="21px" />MSN Explorer</li>
+            <li class="apr-menuitem">
+              <img src="../assets/wm16.png" alt="windows update" width="23px" height="21px" />Windows Messenger</li>
+            <li class="apr-menuitem">
+              <img src="../assets/oe16.png" alt="windows update" width="23px" height="21px" />Outlook Express</li>
+            <li class="apr-menuitem">
+              <img src="../assets/ra16.png" alt="windows update" width="23px" height="21px" />Remote Assistance</li>
+            <li class="apr-menuitem">
+              <img src="../assets/wmp16.png" alt="windows update" width="23px" height="21px" />Windows Media Player</li>
+          </ul>
+
+          <ul class="recent-menu recent-menu-hidden">
+            <li class="recent-menuitem" id="mensagem">
+              <img src="../assets/textdoc.png" alt="mensagem.txt" width="23px" height="21px"/>mensagem.txt
+            </li>
+            <li class="recent-menuitem">
+              <img src="../assets/mywebsite.png" alt="windows update" width="23px" height="21px" />meu_portfolio.html
+            </li>
+            <li class="recent-menuitem">
+              <img src="../assets/documents.png" alt="windows update" width="23px" height="21px" />Fotos</li>
+            <li class="recent-menuitem">
+              <img src="../assets/wordpad.png" alt="windows update" width="23px" height="21px" />Pensamentos.doc</li>
+            <li class="recent-menuitem">
+              <img src="../assets/wordpad.png" alt="windows update" width="23px" height="21px" />Agradecimentos.txt</li>
+            <li class="recent-menuitem">
+              <img src="../assets/textdoc.png" alt="windows update" width="23px" height="21px" />Sobre</li>
+          </ul>
+
+          <ul class="accessories-menu accessories-menu-hidden">
+            <li class="accessories-menuitem" id="accessories-notepad">
+              <img src="../assets/notepad.png" alt="mensagem.txt" width="23px" height="21px" />Note
+            </li>
+            <li class="accessories-menuitem">
+              <img src="../assets/wordpad.png" alt="windows update" width="23px" height="21px" />WordPad
+            </li>
+            <li class="accessories-menuitem">
+              <img src="../assets/calculator.png" alt="windows update" width="23px" height="21px" />Calculator</li>
+            <li class="accessories-menuitem">
+              <img src="../assets/paint.png" alt="windows update" width="23px" height="21px" />Paint</li>
+            <li class="accessories-menuitem">
+              <img src="../assets/spreadsheet.png" alt="windows update" width="23px" height="21px" />Spreadsheet</li>
+            <li class="accessories-menuitem">
+              <img src="../assets/calendar.png" alt="windows update" width="23px" height="21px" />Calendar</li>
+          </ul>
+
+          <ul class="games-menu games-menu-hidden">
+            <li class="games-menuitem">
+              <img src="../assets/minesweeper.png" alt="mensagem.txt" width="23px" height="21px" />Minesweeper
+            </li>
+            <li class="games-menuitem">
+              <img src="../assets/tetris.png" alt="windows update" width="23px" height="21px" />Tetris
+            </li>
+            <li class="games-menuitem">
+              <img src="../assets/solitaire.png" alt="windows update" width="23px" height="21px" />Solitaire</li>
+          </ul>
+
+          <div class="sm-right">
+            <ul class="sm-rightitems toprightitems">
+              <li class="right-card recent right-arrow2">
+                <img src="./assets/myrecent.png" alt="Recent Documents" width="32" height="32" />
+                <div>My Recent Documents</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/mymusic.png" alt="My Music" width="32" height="32" />
+                <div>My Music</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/mycomp.png" alt="My Computer" width="32" height="32" />
+                <div>My Computer</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/mynetwork.png" alt="My Network Places" width="32" height="32" />
+                <div>My Network Places</div>
+              </li>
+            </ul>
+            <img src="./assets/divider2.png" class="right-divider" alt="divider" />
+            <ul class="sm-rightitems">
+              <li class="right-card">
+                <img src="./assets/controlpanel.png" alt="Control Panel" width="32" height="32" />
+                <div><span class="shortcutunderline">C</span>ontrol Panel</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/printers.png" alt="Printers and Faxes" width="32" height="32" />
+                <div>Printers and Faxes</div>
+              </li>
+            </ul>
+            <img src="./assets/divider2.png" class="right-divider" alt="divider" />
+            <ul class="sm-rightitems">
+              <li class="right-card">
+                <img src="./assets/helpsupport.png" alt="Help and Support" width="32" height="32" />
+                <div><span class="shortcutunderline">H</span>elp and Support</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/search.png" alt="Search" width="32" height="32" />
+                <div><span class="shortcutunderline">S</span>earch</div>
+              </li>
+              <li class="right-card">
+                <img src="./assets/run.png" alt="Run" width="32" height="32" />
+                <div><span class="shortcutunderline">R</span>un</div>
+              </li>
+            </ul>
+          </div>
+          <div class="sm-footer">
+            <div class="footer-card">
+              <img src="../assets/logoff.png" />
+              <div><span><u>L</u></span>og Off</div>
+            </div>
+            <div class="footer-card">
+              <img src="../assets/shutdown.png" />
+              <div>Sh<span><u>u</u></span>t Down</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sun"></div>
+      <div class="windowGroup">
+        <!-- <div class="wnContainer">
+          <div class="wnBar">My First Window</div>
+          <div class="wnTopBorder"></div>
+          <div class="wnRightBorder"></div>
+          <div class="wnBottomBorder"></div>
+          <div class="wnLeftBorder"></div>
+          
+          <div class="wnTopLeftCorner"></div>
+          <div class="wnTopRightCorner"></div>
+          <div class="wnBottomLeftCorner"></div>
+          <div class="wnBottomRightCorner"></div>  
+          <div class="wnArea"></div>
+        </div> -->
+      </div>        
+    </div>
+  </body>
+</html>

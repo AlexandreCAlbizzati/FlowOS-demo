@@ -1,0 +1,729 @@
+html {
+  overflow: hidden;
+}
+img.bg {
+  min-width: 1024px;
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+@media screen and (max-width: 1024px) {
+  img.bg {
+    margin-left: -512px;
+    left: 50%;
+  }
+}
+
+.page-wrap {
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+/* | TASKBAR GROUP*/
+.taskbar-group {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  height: 100vh;
+  /* border: 2px solid salmon; */
+}
+
+/* | START-MENU */
+.shortcutunderline {
+  text-decoration: underline;
+}
+
+.start-menu {
+  width: 384px;
+  height: 479px;
+  background-image: url("../assets/start_menu.png");
+  position: relative;
+  visibility: hidden;
+  display: grid;
+  column-gap: 0px;
+  grid-template-columns: 192px 185px;
+  grid-template-rows: 68px 1fr 40px;
+  grid-template-areas:
+    "header header"
+    "left   right"
+    "footer footer";
+}
+.start-menu-visible {
+  visibility: visible;
+  margin-bottom: -5px;
+  z-index: 101;
+}
+
+/* | START-MENU ITEMS */
+.sm-header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 9px;
+}
+.sm-header-username {
+  padding-left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.sm-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px 10px 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+}
+.sm-topcard:hover {
+  background-color: #316ac5;
+  color: white;
+}
+.sm-topcard {
+  display: grid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: none;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "icon line1"
+    "icon line2";
+}
+.sm-topcard-icon {
+  grid-area: icon;
+}
+.sm-topcard-line1 {
+  grid-area: line1;
+  padding-top: 2px;
+  font-weight: 700;
+}
+.sm-topcard-line2 {
+  grid-area: line2;
+  padding-top: 1px;
+  color: #7e7e7e;
+}
+
+.divider {
+  align-self: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+.left-card {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  padding-left: 2px;
+  padding-bottom: 4px;
+  font-weight: 400;
+}
+.left-card > div {
+  padding-top: 3px;
+  padding-left: 6px;
+}
+.left-card:hover {
+  background-color: #316ac5;
+  color: white;
+}
+
+.allprograms {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+.allprograms:hover {
+  background-color: #316ac5;
+  color: white;
+}
+#txtarrow {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 42px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+}
+#arrow {
+  height: 41px;
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: -5px;
+  padding-left: 4px;
+}
+
+.sm-right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 6px;
+}
+.right-card {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  height: 30px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  color: rgb(10, 36, 106);
+}
+.toprightitems {
+  font-weight: 700;
+  color: #0a246a;
+}
+.right-card > div {
+  padding-top: 2px;
+  padding-left: 0px;
+}
+.right-card:hover {
+  background-color: #316ac5;
+  color: white;
+}
+.right-divider {
+  align-self: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+li.right-arrow2 {
+  background-image: url("../assets/recent_arrows.png");
+  background-position: right 6px bottom 9px;
+  background-repeat: no-repeat;
+}
+li.right-arrow2:hover {
+  background-position: right 6px top 8px;
+}
+
+.sm-footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-right: 3px;
+}
+
+.footer-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  height: 36px;
+  padding-bottom: 10px;
+  padding-right: 8px;
+  padding-left: 2px;
+  padding-top: 2px;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  bottom: 2px;
+  position: relative;
+  top: -6px;
+}
+.footer-card > div {
+  position: relative;
+  top: 4px;
+}
+.footer-card > img {
+  position: relative;
+  top: 22px;
+}
+
+/* | ALLPROGRAMS MENU */
+.allprograms-menu {
+  background-color: white;
+  border: 1px solid #55a1ff;
+  background-image: url("../assets/my_recent_side.png");
+  background-repeat: repeat-y;
+  background-position: 1px 0px;
+  position: absolute;
+  bottom: 42px;
+  left: 160px;
+  width: 180px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  /* letter-spacing: 1px; */
+  line-height: 12px;
+  font-stretch: 100%;
+  background-origin: border-box;
+}
+.allprograms-menu-hidden {
+  visibility: hidden;
+}
+li.apr-divider {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-bottom: -2px;
+}
+li.apr-menuitem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+}
+
+li.apr-menuitem:hover {
+  background-color: #316ac5;
+  color: white;
+}
+li.apr-menuitem > img {
+  display: inline-block;
+  position: relative;
+}
+li.seta {
+  display: flex;
+  flex-direction: row;
+}
+
+/* | RECENT MENU */
+.recent-menu {
+  background-color: white;
+  border: 1px solid #55a1ff;
+  background-image: url("../assets/my_recent_side.png");
+  background-repeat: repeat-y;
+  background-position: 1px 0px;
+  position: absolute;
+  top: 78px;
+  left: 370px;
+  width: 180px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  /* letter-spacing: 1px; */
+  line-height: 12px;
+  font-stretch: 100%;
+  background-origin: border-box;
+}
+.recent-menu-hidden {
+  visibility: hidden;
+}
+li.recent-divider {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-bottom: -2px;
+}
+li.recent-menuitem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+}
+li.right-arrow {
+  background-image: url("../assets/recent_arrows.png");
+  background-position: right 5px bottom 9px;
+  background-repeat: no-repeat;
+}
+li.right-arrow:hover {
+  background-position: right 5px top 8px;
+}
+li.recent-menuitem:hover {
+  background-color: #316ac5;
+  color: white;
+}
+li.recent-menuitem > img {
+  display: inline-block;
+  position: relative;
+}
+
+/* | ACCESSORIES MENU */
+.accessories-menu {
+  background-color: white;
+  border: 1px solid #55a1ff;
+  background-image: url("../assets/my_recent_side.png");
+  background-repeat: repeat-y;
+  background-position: 1px 0px;
+  position: absolute;
+  top: 176px;
+  left: 336px;
+  width: 180px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 12px;
+  font-stretch: 100%;
+  background-origin: border-box;
+}
+.accessories-menu-hidden {
+  visibility: hidden;
+}
+li.accessories-menuitem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+li.accessories-menuitem:hover {
+  background-color: #316ac5;
+  color: white;
+}
+li.accessories-menuitem > img {
+  display: inline-block;
+  position: relative;
+  padding-right: 3px;
+}
+
+/* | GAMES MENU */
+.games-menu {
+  background-color: white;
+  border: 1px solid #55a1ff;
+  background-image: url("../assets/my_recent_side.png");
+  background-repeat: repeat-y;
+  background-position: 1px 0px;
+  position: absolute;
+  top: 204px;
+  left: 336px;
+  width: 180px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 12px;
+  font-stretch: 100%;
+  background-origin: border-box;
+}
+.games-menu-hidden {
+  visibility: hidden;
+}
+li.games-menuitem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+li.games-menuitem:hover {
+  background-color: #316ac5;
+  color: white;
+}
+li.games-menuitem > img {
+  display: inline-block;
+  position: relative;
+  padding-right: 3px;
+}
+
+/* | TASKBAR */
+.taskbar {
+  background-color: #2257d6;
+  background-image: url("../assets/taskbar.png");
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 34px;
+  z-index: 100;
+}
+.taskbar > .taskbar-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+/* | START-BUTTON */
+.start-button {
+  background-image: url("../assets/start_button.png");
+  height: 34px;
+  width: 102px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.start-button:hover {
+  background-position: left 0 top -34px;
+  background-repeat: no-repeat;
+}
+.start-button.start-button-clicked {
+  background-position: left 0 bottom 1px;
+}
+
+/* | QUICK-LAUNCH */
+
+/* A fazer: criar unica classe quicklaunch e criar lista para incluir os componentes */
+.taskbar-resize {
+  background-image: url("../assets/taskbar_resize.png");
+  background-repeat: no-repeat;
+  height: 34px;
+  width: 12px;
+  flex-grow: 0;
+}
+.quicklaunch-desktop {
+  background-image: url("../assets/quick_launch_destkop.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 top 0;
+  flex-grow: 0;
+}
+.quicklaunch-desktop:hover {
+  background-image: url("../assets/quick_launch_destkop.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 bottom 0;
+  flex-grow: 0;
+}
+.quicklaunch-ie {
+  background-image: url("../assets/quick_launch_ie.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 top 0;
+  flex-grow: 0;
+}
+.quicklaunch-ie:hover {
+  background-image: url("../assets/quick_launch_ie.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 bottom 0;
+  flex-grow: 0;
+}
+.quicklaunch-winamp {
+  background-image: url("../assets/quick_launch_winamp.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 top 0;
+  flex-grow: 0;
+}
+.quicklaunch-winamp:hover {
+  background-image: url("../assets/quick_launch_winamp.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 bottom 0;
+  flex-grow: 0;
+}
+.quicklaunch-cmd {
+  background-image: url("../assets/quick_launch_cmd.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 top 0;
+  flex-grow: 0;
+}
+.quicklaunch-cmd:hover {
+  background-image: url("../assets/quick_launch_cmd.png");
+  height: 34px;
+  width: 25px;
+  background-position: left 0 bottom 0;
+  flex-grow: 0;
+}
+
+/* | SYSTEM TRAY */
+.systemtray-arrow {
+  background-image: url("../assets/system_tray_arrow.png");
+  height: 34px;
+  width: 21px;
+  flex-grow: 0;
+}
+.systemtray-winamp {
+  background-image: url("../assets/system_tray_winamp.png");
+  height: 34px;
+  width: 21px;
+  flex-grow: 0;
+}
+.systemtray-msn {
+  background-image: url("../assets/system_tray_msn.png");
+  height: 34px;
+  width: 21px;
+  flex-grow: 0;
+}
+.systemtray-lan {
+  background-image: url("../assets/system_tray_lan.png");
+  height: 34px;
+  width: 21px;
+  flex-grow: 0;
+}
+.systemtray-clock {
+  background-image: url("../assets/clock.png");
+  height: 34px;
+  width: 50px;
+  flex-grow: 0;
+}
+.systemtray-time {
+  padding: 13px 5px 5px 7px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: bold;
+}
+/* | PROGRAMS */
+.taskbar-applications {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 0;
+}
+.app-button {
+  width: 134px;
+  height: 34px;
+  flex-shrink: 1;
+  background-color: #316ac5;
+  background-image: url("../assets/open_button.png");
+  background-position: left 0px top 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+.app-button:hover {
+  background-position: left 0px top 34px;
+}
+.app-button:active {
+  background-position: left 0px top 68px;
+}
+
+/* | SUN */
+.sun {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(251, 255, 0);
+  box-shadow: 0px 0px 200px 70px yellow;
+  border-radius: 125px;
+  z-index: 999;
+  visibility: hidden;
+}
+
+.wnContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1000px;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 3px 12px 3px 1fr 80px 3px 3px;
+  grid-template-rows: 3px 30px 1fr 3px;
+  grid-template-areas:
+    "topborder topborder topborder topborder topborder topborder toprightcorner"
+    "topleftcorner topleftcorner wnbar wnbar wnbar_btns wnbar_btns toprightcorner"
+    "leftborder main main main main rightborder ."
+    "bottomleftcorner bottomleftcorner bottomborder bottomborder bottomborder bottomrightcorner .";
+}
+.wnBar {
+  grid-area: wnbar;
+  color: white;
+  background-image: url("../assets/window_bar.png");
+  background-repeat: repeat-x;
+  padding-top: 7px;
+  display: flex;
+}
+.wnBarButtons {
+  grid-area: wnbar_btns;
+  background-color: transparerent;
+  display: flex;
+}
+.wnBarButtons_min {
+  width: 31px;
+  background-image: url("../assets/window_buttons.png");
+  background-position: top 0px left 0px;
+  /* border: 1px solid yellow; */
+}
+.wnBarButtons_min:hover {
+  background-position: top -30px left 0px;
+}
+.wnBarButtons_res {
+  width: 21px;
+  background-image: url("../assets/window_buttons.png");
+  background-position: top 0px left -30px;
+  /* border: 1px solid salmon; */
+}
+.wnBarButtons_res:hover {
+  background-position: top -60px left -30px;
+}
+
+.wnBarButtons_close {
+  width: 31px;
+  background-image: url("../assets/window_buttons.png");
+  background-position: top 0px left -50px;
+  /* border: 1px solid white; */
+}
+.wnBarButtons_close:hover {
+  background-position: top -90px left -50px;
+}
+
+.wnTopLeftCorner {
+  grid-area: topleftcorner;
+  background-image: url("../assets/window_corners.png");
+  /* background-color: green; */
+}
+
+.wnTopRightCorner {
+  grid-area: toprightcorner;
+  /* background-color: green; */
+}
+
+.wnTopBorder {
+  grid-area: topborder;
+  /* background-color: blue; */
+}
+.wnRightBorder {
+  grid-area: rightborder;
+  background-color: blue;
+  /* background-color: orange; */
+}
+.wnBottomBorder {
+  grid-area: bottomborder;
+  background-color: blue;
+  /* background-color: yellow; */
+}
+.wnLeftBorder {
+  grid-area: leftborder;
+  background-color: blue;
+  /* background-color: orange; */
+}
+.wnArea {
+  grid-area: main;
+  /* background-color: #f0f0e7; */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  overflow: auto;
+  /* background-color: rgba(82, 82, 82, 0.774); */
+}
+
+.wnBottomLeftCorner {
+  grid-area: bottomleftcorner;
+  background-color: blue;
+  /* background-color: red; */
+}
+
+.wnBottomRightCorner {
+  grid-area: bottomrightcorner;
+  background-color: blue;
+  /* background-color: red; */
+}
