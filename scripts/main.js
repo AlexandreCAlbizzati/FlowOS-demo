@@ -286,6 +286,20 @@ mensagem.addEventListener('click', () => {
     startMenu.classList.toggle("start-menu-visible", false);
     startButton.classList.toggle("start-button-clicked", false);
 });
+let leftMenuNotepad = document.querySelector('#left-menu-notepad');
+leftMenuNotepad.addEventListener('click', ()=> {
+    createWindow({ application: "notepad", title: "Notepad", icon: "notepad.png", data: {text: notepadData['empty']} });
+    startMenu.classList.toggle("start-menu-visible", false);
+    startButton.classList.toggle("start-button-clicked", false);
+});
+let notFound = document.querySelectorAll('.no-app');
+notFound.forEach(app => app.addEventListener('click', () => {
+    createWindow({ application: "error", title: "Error", icon: "critical.png", dimensions:{width: 500, height: 200}, modal:true});
+    startMenu.classList.toggle("start-menu-visible", false);
+    startButton.classList.toggle("start-button-clicked", false);
+}));
+
+
 let desktopButton = document.querySelector(".quicklaunch-desktop");
 desktopButton.addEventListener('click',()=>{
     myWindows.forEach(wnd => minimizeWindow(wnd.id));
@@ -297,11 +311,11 @@ quickLaunchIE.addEventListener('click', () => {
 let quickLaunchCMD = document.querySelector('.quicklaunch-cmd');
 quickLaunchCMD.addEventListener('click', () => {
     createWindow({ application: "cmd", title: "Command Prompt", icon: "cmd.png" });
-})
+});
 let quickLaunchWinamp = document.querySelector('.quicklaunch-winamp');
 quickLaunchWinamp.addEventListener('click', () => {
     createWindow({ application: "error", title: "Error", icon: "critical.png", dimensions:{width: 500, height: 200}, modal:true});
-})
+});
 
 
 
