@@ -106,9 +106,11 @@ let addTaskbarButton = (winType, newID) => {
 
   let taskbarBtnImg = document.createElement("img");
   taskbarBtnImg.setAttribute("src", `../assets/${winType.icon}`);
-  taskbarBtnImg.setAttribute("class", "pd-top-5");
+  taskbarBtnImg.setAttribute("class", "pd-top-5 pd-left-2");
   taskbarBtnImg.setAttribute("alt", "ie16 icon");
-
+  taskbarBtnImg.style.width = '22px';
+  taskbarBtnImg.style.height = '22px';
+  
   let taskbarBtnText = document.createElement("p");
   taskbarBtnText.setAttribute("class", "pd-top-5 pd-left-2");
   taskbarBtnText.innerText = winType.title;
@@ -679,6 +681,7 @@ let createWindow = (winType) => {
     resizeActive: false,
     cornerActive: false,
     data: winType.data,
+    dimensions: winType.dimensions,
   });
 
   //Add Application
@@ -686,11 +689,18 @@ let createWindow = (winType) => {
   _wnArea.innerHTML = appGenerator[winType.application](myWindows[myWindows.length-1]);
 
   //Wire the events
+  if (!winType.modal){
+    wireResizingEvent(myWindows[findIndexWithID(myWindows, newID)]);
+  }else{
+    let container = myWindows[myWindows.length-1].container;
+    container.style.left = window.screen.width/2 - winType.dimensions.width/2 + "px";
+    container.style.top = (window.screen.height-100)/2 - winType.dimensions.height/2 + "px";
+  }
   wireDraggingEvent(myWindows[findIndexWithID(myWindows, newID)]);
   wireMaximizationState(myWindows[findIndexWithID(myWindows, newID)], taskbarButton);
-  wireResizingEvent(myWindows[findIndexWithID(myWindows, newID)]);
   wireZIndexBehavior(myWindows[findIndexWithID(myWindows, newID)]);
   wireWnBarButtonsBehavior(myWindows[findIndexWithID(myWindows, newID)]);
+
 
   updateTaskbarButtonsFocus();
 };
@@ -704,3 +714,12 @@ export let excludeWindow = (myID) => {
   btnX.remove();
   myWindows.splice(arrIndex, 1);
 };
+
+export let minimizeWindow = (myID) => {
+    taskbarApps.querySelector(`#btn_${myID}`).style.backgroundPosition = "left 0px top 0px";
+    let myWindow = myWindows[findIndexWithID(myWindows, myID)];
+    myWindow.container.style.visibility = "hidden";
+    myWindow.maximized = false;
+
+    updateTaskbarButtonsFocus();
+}

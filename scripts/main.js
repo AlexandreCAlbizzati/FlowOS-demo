@@ -218,8 +218,7 @@ function adjustClock(){
 }
 adjustClock();
 
-import createWindow, {myWindows, getWindowPart, excludeWindow} from "./window.js";
-
+import createWindow, {myWindows, getWindowPart, excludeWindow, minimizeWindow} from "./window.js";
 //createWindow({ application: "IE", title: "Internet Explorer", icon: "ie16.png" });
 createWindow({ application: "notepad", title: "Notepad", icon: "notepad.png", data: {text: notepadData['hello']} });
 //createWindow({ application: "IE", title: "Internet Explorer", icon: "ie16.png" });
@@ -283,11 +282,28 @@ executeNotepad.addEventListener('click', () => {
 });
 let mensagem = document.querySelector("#mensagem");
 mensagem.addEventListener('click', () => {
-
     createWindow({ application: "notepad", title: "Notepad", icon: "notepad.png", data: {text: notepadData['mensagem']}});
     startMenu.classList.toggle("start-menu-visible", false);
     startButton.classList.toggle("start-button-clicked", false);
+});
+let desktopButton = document.querySelector(".quicklaunch-desktop");
+desktopButton.addEventListener('click',()=>{
+    myWindows.forEach(wnd => minimizeWindow(wnd.id));
+});
+let quickLaunchIE = document.querySelector('.quicklaunch-ie');
+quickLaunchIE.addEventListener('click', () => {
+    createWindow({ application: "IE", title: "Internet Explorer", icon: "ie16.png"});
+});
+let quickLaunchCMD = document.querySelector('.quicklaunch-cmd');
+quickLaunchCMD.addEventListener('click', () => {
+    createWindow({ application: "cmd", title: "Command Prompt", icon: "cmd.png" });
 })
+let quickLaunchWinamp = document.querySelector('.quicklaunch-winamp');
+quickLaunchWinamp.addEventListener('click', () => {
+    createWindow({ application: "error", title: "Error", icon: "critical.png", dimensions:{width: 500, height: 200}, modal:true});
+})
+
+
 
 // Key combination (only for testing)
 window.addEventListener('keydown', (e) => {

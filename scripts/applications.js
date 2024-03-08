@@ -1,6 +1,8 @@
+import { myWindows } from "./window.js";
+
 export let generateNotepad = (obj) => {
-    let message = obj.data.text;
-    return `
+  let message = obj.data.text;
+  return `
     <style>
     .menu-notepad {
       flex-grow: 0;
@@ -45,7 +47,7 @@ export let generateNotepad = (obj) => {
       <li>Help</li>
     </ul>
     <textarea class="notepad">${message}</textarea>  
-  `
+  `;
 };
 
 export let generateIE = (obj) => {
@@ -188,7 +190,7 @@ export let generateIE = (obj) => {
       <h3 style="color: whitesmoke">Cheers, Alex</h3>
       <br>
     </section>
-  `
+  `;
 };
 
 export let generateCMD = (obj) => {
@@ -204,20 +206,48 @@ export let generateCMD = (obj) => {
       }
     </style>
   <div class="cmd-app">C:\\></div>  
-  `
+  `;
 };
 
 export let generateSite = (myWindow) => {
-  return generateIE(myWindow) + `
+  return (
+    generateIE(myWindow) +
+    `
   <style>iframe { flex-grow: 1; }</style>
-  <iframe src="https://bing.com/"></iframe>`;
-}
+  <iframe src="https://bing.com/"></iframe>`
+  );
+};
+
+export let applicationNotFound = (myWindow) => {
+  let container = myWindow.container;
+  container.style.width = myWindow.dimensions.width + "px";
+  container.style.height = myWindow.dimensions.height + "px";
+  return `
+  <style>
+  .app-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: ${container.style.height};
+  }
+  .critical {
+    width: 48px;
+    height: auto;
+  }
+</style>
+  <div class="app-not-found">
+    <img src="../assets/critical.png" class="critical" />
+    <p style="font-size: 1.2em; font-family: Arial">Error! Application not found!</p>
+  </div>
+
+  `;
+};
 
 let appGenerator = {
   notepad: generateNotepad,
   IE: generateIE,
   cmd: generateCMD,
   bing: generateSite,
-  
+  error: applicationNotFound,
 };
 export default appGenerator;
